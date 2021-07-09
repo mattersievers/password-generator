@@ -38,8 +38,9 @@ var character = {
 var generateBtn = document.querySelector("#generate");
 
   //Number of characters between 8 and 128 inclusive.
-  while (character.length < 8 || character.length > 128 || typeof character.length !== "number") {
+  while (character.length < 8 || character.length > 128 || isNaN(character.length)) {
 character.length = window.prompt("How many characters is your password? \n (Passwords should be between 8 and 128 characters.)");
+
 }
   //uppercase, lowercase, numeric, and/or special characters
 character.upper = window.confirm("Does your password contain UPPERCASE letters?");
