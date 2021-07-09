@@ -35,15 +35,19 @@ var character = {
   special: null,
 } ;
 
+//Empty sets. We will construct the characters of the password in prescramble and all possible sets to draw from in possibleSets
+const prescrambled =[];
+var possibleSets =[];
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-  //Number of characters between 8 and 128 inclusive. While loop rejects bad answers.
+  //Confirm number of characters between 8 and 128 inclusive. While loop rejects bad answers.
   while (character.long < 8 || character.long > 128 || isNaN(character.long)) {
 character.long = window.prompt("How many characters is your password? \n (Passwords should be between 8 and 128 characters.)");
   }
 
-//upper, lower, numeric, and/or special characters
+//Confirm whether upper, lower, numeric, and/or special characters
 character.upper = window.confirm("Does your password contain upper letters?");
 character.lower = window.confirm("Does your password contain lower letters?");
 character.numeric = window.confirm("Does your password contain NUMBERS?");
@@ -58,11 +62,8 @@ var charAdd = function (currentSet) {
 
 //Begin the generatePassword function which explains how to find pwd
 var generatePassword = function (){
-  //Empty sets. We will construct the characters of the password in prescramble and all possible sets to draw from in possibleSets
   const prescrambled =[];
-  var possibleSets =[];
-  password = null;
-
+ 
   //Check and add if true for each set.
   if(character.upper){
     charAdd(upper); 
@@ -90,6 +91,8 @@ var generatePassword = function (){
 };
   // Write password to the #password input
 function writePassword() {
+
+  //Run the generator
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
