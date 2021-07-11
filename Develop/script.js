@@ -22,7 +22,7 @@ var shuffle = function (array) {
 const upper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 const lower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 const numeric = ["0","1","2","3","4","5","6","7","8","9"];
-const special = ["`","~","!","@","#","$","%","^","&","*","(",")","_","-",",","=","[","{","}","]","|",":",";","'","<",">","?",",",".","/"];
+const special = ["`","~","!","@","#","$","%","^","&","*","(",")","_","-","+","=","[","{","}","]","|",":",";","'","<",">","?",,".","/"];
 
 
 //The selected character options with dummy values
@@ -44,7 +44,7 @@ var generateBtn = document.querySelector("#generate");
 
   //Confirm number of characters between 8 and 128 inclusive. While loop rejects bad answers.
   while (character.long < 8 || character.long > 128 || isNaN(character.long)) {
-character.long = window.prompt("How many characters is your password? \n (Passwords should be between 8 and 128 characters.)");
+  character.long = window.prompt("How many characters is your password? \n (Passwords should be between 8 and 128 characters.)");
   }
 
 //Confirm whether upper, lower, numeric, and/or special characters
